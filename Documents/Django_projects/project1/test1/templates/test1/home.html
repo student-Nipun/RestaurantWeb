@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+</head>
+
+<body>
+  <!--Call the navbar.html file-->
+  {% include "test1/navbar.html" %}
+
+  <!-- Carousel section begins here-->
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <img src="{% static 'test1/coffee.jpg'%}" class="d-block w-100" alt="..."
+          style="object-fit: cover; height: 500px" />
+        <div class="carousel-caption">
+          <h1>A Hot Cup of Happiness</h1>
+          <p>
+            Behind every successful person is a substantial amount of coffee.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="{% static 'test1/burger.jpg'%}" class="d-block w-100" alt="..."
+          style="object-fit: cover; height: 500px" />
+        <div class="carousel-caption">
+          <h1>Life is Better with Burger</h1>
+          <p>A good burger is worth its weight in gold.</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="{% static 'test1/restaurant.jpg'%}" class="d-block w-100" alt="..."
+          style="object-fit: cover; height: 500px" />
+        <div class="carousel-caption">
+          <h1>Kitchen Seasoned with Love</h1>
+          <p>The fondest memory are made when gathered around the table.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Carousel section ends here-->
+
+  <!--Card section start here-->
+
+  <div class="container mt-4">
+    <div class="alert alert-primary text-center">
+      <h2>Our Products</h2>
+    </div>
+    {{warning}}
+    <div class="row">
+      {% for x in product_info %}
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card mt-2">
+          <img src="{{x.product_img.url}}" class="card-img-top img-fluid" alt="..."
+            style="max-height: 280px; max-width: 100%" />
+          <div class="card-body">
+            <h5 class="card-title">{{x.product_name}}</h5>
+            <p class="card-text">{{x.product_description}}</p>
+            <a href="#" class="btn btn-primary">{{x.product_category}}, {{x.product_id}}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!--Card section ends here-->
+
+  <!--Footer section begins here-->
+  {% include "test1/footer.html" %}
+  <!--Footer section ends here-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact us</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!--Call the navbar.html file-->
+    {% include "test1/navbar.html" %}
+
+    <div class="container">
+      <h1 class="alert alert-primary text-center mt-2">Contact us</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="display-6">
+            "In a restaurant you can provide community a place to rest, eat, and
+            laugh."
+          </h5>
+          <h5>Email: abc@gmail.com</h5>
+          <h5>Mob:+91-98xxxxxxxx</h5>
+          <h5>Address: abc street, Connaught Place, New Delhi, India</h5>
+          <h5>Operating Hours: 9:00 am- 11:30 pm, all seven days</h5>
+        </div>
+        <div class="col-md-6">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.112327979654!2d77.20498719714419!3d28.628920445075593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0x5dee88e47393c3f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1752204873818!5m2!1sen!2sin"
+            width="100%"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <h2 class="mt-2 text-center">Have Some Questions?</h2>
+      <div class="text-center">
+        {% if x %}
+        <h2 class="alert alert-success text-center">{{x}}</h2>
+        {% endif %}
+        <form method="post" action="">
+          {% csrf_token %}
+          <input
+            placeholder="Enter Your Name"
+            class="form-control"
+            name="name"
+          /><br />
+          <input
+            placeholder="Enter Your Email"
+            class="form-control"
+            name="email"
+          /><br />
+          <textarea
+            placeholder="Enter Message"
+            class="form-control"
+            name="message"
+            rows="4"
+          ></textarea
+          ><br />
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!--Footer section begins here-->
+    {% include "test1/footer.html" %}
+
+    <!--Footer section ends here-->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
